@@ -1,0 +1,44 @@
+<!--<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">-->
+<!--<html xmlns="http://www.w3.org/1999/xhtml">-->
+<!--<head>-->
+<!--<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />-->
+<!--<title>Untitled Document</title>-->
+<!--</head>-->
+
+<!--<body>-->
+
+{%extends 'admin_home.html'%}
+{%block body%}
+
+  <table >
+    <thead>
+    <tr>
+      <td width="51">Sl no</td>
+      <td width="36">Photo</td>
+      <td width="51">Place</td>
+      <td width="69">Description</td>
+      <td width="51">Latitude</td>
+      <td width="60">Longitude</td>
+      <td width="128">&nbsp;</td>
+    </tr>
+    </thead>
+    <tbody>
+    {% for i in value%}
+    <tr>
+      <td>{{i[0]}}</td>
+      <td><img src="static/images/{{i[1]}}"></td>
+      <td>{{i[5]}}</td>
+      <td>{{i[2]}}</td>
+      <td>{{i[3]}}</td>
+      <td>{{i[4]}}</td>
+      <td><a href="pothole_update?id={{i[0]}}" class="edit">Edit</a>
+      <a href="pothole_delete?id={{i[0]}}" class="delete">Delete</a>
+	  <a href="http://www.google.com/maps?q={{i[3]}},{{i[4]}}" class="button">View</a>
+      </td>
+    </tr>
+    {% endfor %}
+</tbody>
+  </table>
+<!--</body>-->
+<!--</html>-->
+{%endblock%}
